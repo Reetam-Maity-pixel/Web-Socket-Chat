@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+        
+        ws.onopen = () => {
+            console.log('Connected to server');
+        };
+        
+        ws.onmessage = (event) => {
+            console.log('Received:', event.data);
+        };
+        
+        // Test sending a message
+        setTimeout(() => {
+            ws.send('Hello from client!');
+        }, 1000);
+    </script>
+</body>
+</html> 
